@@ -3,12 +3,13 @@ FROM alpine:latest
 LABEL maintainer="Per-Ole Fanuelsen" 
 
 RUN apk --no-cache add \
+        openssh \
         ansible \
         py3-pip \
         ca-certificates  
 RUN apk --no-cache add --virtual build-dependencies
 
-RUN pip3 install --upgrade pip wheel cryptography mitogen jmespath pywinrm && \
+RUN pip3 install --upgrade pip wheel cryptography mitogen jmespath pywinrm proxmoxer && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \

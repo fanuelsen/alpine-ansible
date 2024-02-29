@@ -6,11 +6,13 @@ RUN apk --no-cache add \
         openssh \
         ansible \
         py3-pip \
+        py3-requests \
+        py3-netaddr \
         ca-certificates  
+
 RUN apk --no-cache add --virtual build-dependencies
 
-RUN pip3 install --upgrade pip wheel cryptography mitogen jmespath pywinrm proxmoxer && \
-    apk del build-dependencies && \
+RUN apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \
     rm -rf /root/.cargo

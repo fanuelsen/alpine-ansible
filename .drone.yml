@@ -32,4 +32,4 @@ steps:
 #       - failure
 trigger:
   event:
-    - cron
+    - push

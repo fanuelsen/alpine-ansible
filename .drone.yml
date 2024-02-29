@@ -1,7 +1,11 @@
 ---
+
 kind: pipeline
 type: docker
-name: publish
+name: docker build images
+platform:
+  os: linux
+  arch: arm64
 steps:
 - name: build and publish
   image: plugins/docker
@@ -14,9 +18,6 @@ steps:
       from_secret: docker_repo
     tags: 
       - latest
-      - '1.0.0'
-      - '1.0'
-      - '1'
   # when:
   #   event:
   #     - cron

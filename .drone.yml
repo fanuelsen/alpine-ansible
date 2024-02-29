@@ -10,6 +10,8 @@ steps:
 - name: build and publish
   image: plugins/docker
   settings:
+    privileged: true
+    userns_mode: host
     username:
       from_secret: docker_username
     password:

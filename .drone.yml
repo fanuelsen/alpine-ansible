@@ -30,6 +30,6 @@ steps:
 #     status: 
 #       - success
 #       - failure
-trigger:
-  event:
-    - push
+# trigger:
+#   event:
+#     - push
